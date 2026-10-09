@@ -1,0 +1,272 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "ui": {
+      "projectType": "library",
+      "root": "projects/ui",
+      "sourceRoot": "projects/ui/src",
+      "prefix": "bofa",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/ui/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ui/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ui/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ui/src/test.ts",
+            "tsConfig": "projects/ui/tsconfig.spec.json",
+            "karmaConfig": "projects/ui/karma.conf.js"
+          }
+        }
+      }
+    },
+    "wealth-portal": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/wealth-portal",
+      "sourceRoot": "projects/wealth-portal/src",
+      "prefix": "wp",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/wealth-portal",
+            "index": "projects/wealth-portal/src/index.html",
+            "main": "projects/wealth-portal/src/main.ts",
+            "polyfills": "projects/wealth-portal/src/polyfills.ts",
+            "tsConfig": "projects/wealth-portal/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/wealth-portal/src/favicon.ico",
+              "projects/wealth-portal/src/assets"
+            ],
+            "styles": [
+              "projects/wealth-portal/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "1mb",
+                  "maximumError": "2mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "4kb",
+                  "maximumError": "8kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "projects/wealth-portal/src/environments/environment.ts",
+                  "with": "projects/wealth-portal/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "wealth-portal:build:production"
+            },
+            "development": {
+              "browserTarget": "wealth-portal:build:development"
+            }
+          },
+          "defaultConfiguration": "development",
+          "options": {
+            "port": 4300
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "wealth-portal:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/wealth-portal/src/test.ts",
+            "polyfills": "projects/wealth-portal/src/polyfills.ts",
+            "tsConfig": "projects/wealth-portal/tsconfig.spec.json",
+            "karmaConfig": "projects/wealth-portal/karma.conf.js",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/wealth-portal/src/favicon.ico",
+              "projects/wealth-portal/src/assets"
+            ],
+            "styles": [
+              "projects/wealth-portal/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    },
+    "analytics-sdk": {
+      "projectType": "library",
+      "root": "projects/analytics-sdk",
+      "sourceRoot": "projects/analytics-sdk/src",
+      "prefix": "an",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/analytics-sdk/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/analytics-sdk/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/analytics-sdk/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/analytics-sdk/src/test.ts",
+            "tsConfig": "projects/analytics-sdk/tsconfig.spec.json",
+            "karmaConfig": "projects/analytics-sdk/karma.conf.js"
+          }
+        }
+      }
+    },
+    "digital-banking": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/digital-banking",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "1mb",
+                  "maximumError": "2mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "4kb",
+                  "maximumError": "8kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "digital-banking:build:production"
+            },
+            "development": {
+              "browserTarget": "digital-banking:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "digital-banking:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "src/test.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.spec.json",
+            "karmaConfig": "karma.conf.js",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.scss"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    }
+  }
+}

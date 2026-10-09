@@ -1,0 +1,40 @@
+<div class="page">
+  <bofa-page-header eyebrow="Accounts overview" [title]="'Good afternoon, ' + ((auth.user$ | async)?.firstName || '')"
+    subtitle="Here's where your money stands today."></bofa-page-header>
+
+  <bofa-alert-banner level="warning" *ngIf="showBanner" [dismissible]="true" (dismissed)="showBanner = false">
+    Paperless statements are now available for all of your accounts.
+  </bofa-alert-banner>
+
+  <div class="grid" *ngIf="accounts$ | async as accounts; else loading" data-test="accounts">
+    <bofa-account-tile *ngFor="let a of accounts; trackBy: trackById" [name]="a.name" [accountNumber]="a.number"
+      [balance]="a.balance" [kind]="a.kind" (select)="open(a)" anTrack="account_tile_open" [anTrackProps]="{ kind: a.kind }">
+    </bofa-account-tile>
+  </div>
+  <ng-template #loading><mat-spinner diameter="36"></mat-spinner></ng-template>
+
+  <div class="widgets" fxLayout="row wrap" fxLayout.lt-md="column" fxLayoutGap="16px">
+    <mat-card fxFlex fxFlex.lt-md="100%">
+      <mat-card-title>Credit score</mat-card-title>
+      <ng-container *ngIf="creditScore$ | async as score; else unavailable">
+        <div class="score">{{ score.score }}</div>
+        <mat-chip-list><mat-chip selected color="primary">{{ score.band }}</mat-chip></mat-chip-list>
+        <p class="muted small">{{ score.provider }} · as of {{ score.asOf | date: 'mediumDate' }}</p>
+      </ng-container>
+      <ng-template #unavailable><p class="muted">Credit score is temporarily unavailable.</p></ng-template>
+    </mat-card>
+
+    <mat-card fxFlex fxFlex.lt-md="100%">
+      <mat-card-title>Markets</mat-card-title>
+      <fdp-market-ticker [quotes]="market$ | async" data-test="market-ticker"></fdp-market-ticker>
+    </mat-card>
+
+    <mat-card fxFlex fxFlex.lt-md="100%">
+      <mat-card-title>Linked external accounts</mat-card-title>
+      <div class="quote" *ngFor="let x of external$ | async">
+        <span>{{ x.institution }} · {{ x.name }} ••{{ x.mask }}</span>
+        <span>{{ x.balance | bofaAmount }}</span>
+      </div>
+    </mat-card>
+  </div>
+</div>

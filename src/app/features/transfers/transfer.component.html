@@ -1,0 +1,58 @@
+<div class="page">
+  <bofa-page-header eyebrow="Transfers" title="Transfer between your accounts"
+    subtitle="Transfers made before 8 p.m. ET are available the same business day."></bofa-page-header>
+
+  <mat-card class="form-card">
+    <ng-container *ngIf="!confirmation; else done">
+      <bofa-alert-banner level="error" *ngIf="error">{{ error }}</bofa-alert-banner>
+      <form [formGroup]="form" (ngSubmit)="submit()">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>From</mat-label>
+          <mat-select formControlName="fromAccountId" data-test="from">
+            <mat-option *ngFor="let a of accounts" [value]="a.id">{{ a.name }} {{ a.number | bofaMask }} — {{ a.available | bofaAmount }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>To</mat-label>
+          <mat-select formControlName="toAccountId" data-test="to">
+            <mat-option *ngFor="let a of accounts" [value]="a.id">{{ a.name }} {{ a.number | bofaMask }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <bofa-alert-banner level="warning" *ngIf="form.hasError('sameAccount')">Choose two different accounts.</bofa-alert-banner>
+        <div class="row" fxLayout="row" fxLayout.xs="column" fxLayoutGap="16px">
+          <mat-form-field appearance="outline">
+            <mat-label>Amount</mat-label>
+            <span matPrefix>$&nbsp;</span>
+            <input matInput type="number" formControlName="amount" data-test="amount" />
+            <mat-error *ngIf="form.get('amount')?.hasError('min')">Enter an amount greater than $0</mat-error>
+            <mat-error *ngIf="form.get('amount')?.hasError('max')">Online transfers are limited to $25,000</mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Send on</mat-label>
+            <input matInput [matDatepicker]="picker" [min]="minDate" formControlName="date" />
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <bofa-alert-banner level="error" *ngIf="form.getError('insufficientFunds') as e">
+          Amount exceeds the available balance of {{ e.available | bofaAmount }}.
+        </bofa-alert-banner>
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Memo (optional)</mat-label>
+          <input matInput formControlName="memo" />
+        </mat-form-field>
+        <button mat-flat-button color="primary" type="submit" [disabled]="submitting" anTrack="transfer_submit" data-test="transfer-submit">
+          {{ submitting ? 'Processing…' : 'Transfer now' }}
+        </button>
+      </form>
+    </ng-container>
+    <ng-template #done>
+      <div class="done" data-test="transfer-confirmation">
+        <mat-icon>check_circle</mat-icon>
+        <h2>Transfer complete</h2>
+        <p>Confirmation number <strong>{{ confirmation?.confirmationNumber }}</strong></p>
+        <button mat-stroked-button color="primary" (click)="reset()">Make another transfer</button>
+      </div>
+    </ng-template>
+  </mat-card>
+</div>

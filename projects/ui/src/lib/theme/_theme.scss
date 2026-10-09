@@ -1,0 +1,61 @@
+// BofA Digital design system theme, layered on Angular Material 14 (legacy, non-MDC components).
+@use '@angular/material' as mat;
+
+$bofa-navy: (
+  50: #e6eaf1, 100: #c0cadc, 200: #96a7c5, 300: #6b84ad, 400: #4c6a9c, 500: #012169,
+  600: #011d61, 700: #011856, 800: #01144c, 900: #000b3b,
+  A100: #6f86ff, A200: #3c5cff, A400: #0933ff, A700: #002af0,
+  contrast: (50: #000, 100: #000, 200: #000, 300: #fff, 400: #fff, 500: #fff, 600: #fff,
+    700: #fff, 800: #fff, 900: #fff, A100: #000, A200: #fff, A400: #fff, A700: #fff)
+);
+$bofa-red: (
+  50: #fbe5e8, 100: #f5bec5, 200: #ee929f, 300: #e66679, 400: #e1455c, 500: #e31837,
+  600: #d81432, 700: #cd102b, 800: #c30c24, 900: #b10617,
+  A100: #ffdada, A200: #ffa7a7, A400: #ff7474, A700: #ff5b5b,
+  contrast: (50: #000, 100: #000, 200: #000, 300: #000, 400: #fff, 500: #fff, 600: #fff,
+    700: #fff, 800: #fff, 900: #fff, A100: #000, A200: #000, A400: #000, A700: #000)
+);
+
+$bofa-primary: mat.define-palette($bofa-navy, 500);
+$bofa-accent: mat.define-palette($bofa-red, 500);
+$bofa-warn: mat.define-palette(mat.$red-palette);
+
+$bofa-typography: mat.define-typography-config(
+  $font-family: '"Connections", "Helvetica Neue", Arial, sans-serif',
+  $headline: mat.define-typography-level(24px, 32px, 600),
+  $title: mat.define-typography-level(18px, 26px, 600)
+);
+
+$bofa-theme: mat.define-light-theme((
+  color: (primary: $bofa-primary, accent: $bofa-accent, warn: $bofa-warn),
+  typography: $bofa-typography,
+));
+
+@mixin bofa-design-system() {
+  @include mat.core($bofa-typography);
+  @include mat.all-component-themes($bofa-theme);
+
+  // Design-system overrides that reach into Material's internal DOM / class names.
+  .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: #c0cadc;
+  }
+  .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    color: #012169;
+  }
+  .mat-raised-button.mat-primary,
+  .mat-flat-button.mat-primary {
+    border-radius: 24px;
+    padding: 0 24px;
+    letter-spacing: 0.02em;
+  }
+  .mat-card {
+    border-radius: 12px;
+  }
+  .mat-tab-label-active {
+    color: #012169;
+    opacity: 1;
+  }
+  .mat-chip.mat-standard-chip {
+    min-height: 26px;
+  }
+}

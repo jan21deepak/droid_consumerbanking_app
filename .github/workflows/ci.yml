@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  verify:
+    name: Build & test (libs + all consumers)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - name: Build shared libraries
+        run: npm run build:libs
+      - name: Build digital-banking (retail web)
+        run: npx ng build digital-banking
+      - name: Build wealth-portal (downstream consumer)
+        run: npx ng build wealth-portal
+      - name: Unit tests
+        run: npm test

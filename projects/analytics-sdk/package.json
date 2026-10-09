@@ -1,0 +1,13 @@
+{
+  "name": "@bofa-demo/analytics-sdk",
+  "version": "2.7.1",
+  "description": "Proprietary Digital Banking analytics SDK (page views, interaction tracking, API latency beacons).",
+  "peerDependencies": {
+    "@angular/common": "^14.2.0",
+    "@angular/core": "^14.2.0",
+    "@angular/router": "^14.2.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  }
+}

@@ -1,0 +1,10 @@
+# Review ownership. Branch protection requires an approving review from the owning team.
+*                          @bofa-demo/digital-banking-core
+/projects/ui/              @bofa-demo/design-system
+/projects/analytics-sdk/   @bofa-demo/analytics-platform
+/projects/wealth-portal/   @bofa-demo/wealth-frontend
+/src/app/core/auth/        @bofa-demo/appsec @bofa-demo/digital-banking-core
+/src/app/core/http/        @bofa-demo/appsec @bofa-demo/digital-banking-core
+/vendor/                   @bofa-demo/vendor-management
+/.nvmrc                    @bofa-demo/platform-engineering
+/.github/workflows/        @bofa-demo/platform-engineering

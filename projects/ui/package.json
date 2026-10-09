@@ -1,0 +1,14 @@
+{
+  "name": "@bofa-demo/ui",
+  "version": "4.2.0",
+  "description": "Shared Digital Banking design system (built on Angular Material). Consumed by multiple downstream teams.",
+  "peerDependencies": {
+    "@angular/common": "^14.2.0",
+    "@angular/core": "^14.2.0",
+    "@angular/material": "^14.2.0",
+    "@angular/cdk": "^14.2.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  }
+}

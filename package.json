@@ -1,0 +1,51 @@
+{
+  "name": "bofa-digital-banking",
+  "version": "14.2.0",
+  "scripts": {
+    "ng": "ng",
+    "build:libs": "ng build ui && ng build analytics-sdk",
+    "prestart": "npm run build:libs",
+    "start": "ng serve digital-banking",
+    "start:wealth": "ng serve wealth-portal",
+    "build": "npm run build:libs && ng build digital-banking && ng build wealth-portal",
+    "test": "ng test ui --watch=false --browsers=ChromeHeadlessCI && ng test analytics-sdk --watch=false --browsers=ChromeHeadlessCI && npm run build:libs && ng test digital-banking --watch=false --browsers=ChromeHeadlessCI && ng test wealth-portal --watch=false --browsers=ChromeHeadlessCI",
+    "verify": "npm run build && npm test"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^14.2.0",
+    "@angular/cdk": "^14.2.7",
+    "@angular/common": "^14.2.0",
+    "@angular/compiler": "^14.2.0",
+    "@angular/core": "^14.2.0",
+    "@angular/flex-layout": "^14.0.0-beta.41",
+    "@angular/forms": "^14.2.0",
+    "@angular/material": "^14.2.7",
+    "@angular/platform-browser": "^14.2.0",
+    "@angular/platform-browser-dynamic": "^14.2.0",
+    "@angular/router": "^14.2.0",
+    "@fdp/market-widget": "file:vendor/fdp-market-widget-3.4.2.tgz",
+    "rxjs": "~7.5.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.11.4"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^14.2.13",
+    "@angular/cli": "~14.2.13",
+    "@angular/compiler-cli": "^14.2.0",
+    "@types/jasmine": "~4.0.0",
+    "@types/node": "^16.18.126",
+    "jasmine-core": "~4.3.0",
+    "karma": "~6.4.0",
+    "karma-chrome-launcher": "~3.1.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.0.0",
+    "ng-packagr": "^14.2.0",
+    "typescript": "~4.7.2"
+  },
+  "description": "Customer-facing digital banking web app (Angular 14) with a shared design-system library and downstream consumers.",
+  "engines": {
+    "node": ">=14.20 <17"
+  }
+}
