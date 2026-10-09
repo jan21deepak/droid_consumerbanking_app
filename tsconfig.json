@@ -23,10 +23,10 @@
       "dom"
     ],
     "paths": {
-      "@bofa-demo/analytics-sdk": [
+      "@dbs-demo/analytics-sdk": [
         "dist/analytics-sdk"
       ],
-      "@bofa-demo/ui": [
+      "@dbs-demo/ui": [
         "dist/ui"
       ]
     }

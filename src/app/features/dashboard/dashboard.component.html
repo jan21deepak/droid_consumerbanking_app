@@ -1,15 +1,15 @@
 <div class="page">
-  <bofa-page-header eyebrow="Accounts overview" [title]="'Good afternoon, ' + ((auth.user$ | async)?.firstName || '')"
-    subtitle="Here's where your money stands today."></bofa-page-header>
+  <dbs-page-header eyebrow="Accounts overview" [title]="'Good afternoon, ' + ((auth.user$ | async)?.firstName || '')"
+    subtitle="Here's where your money stands today."></dbs-page-header>
 
-  <bofa-alert-banner level="warning" *ngIf="showBanner" [dismissible]="true" (dismissed)="showBanner = false">
+  <dbs-alert-banner level="warning" *ngIf="showBanner" [dismissible]="true" (dismissed)="showBanner = false">
     Paperless statements are now available for all of your accounts.
-  </bofa-alert-banner>
+  </dbs-alert-banner>
 
   <div class="grid" *ngIf="accounts$ | async as accounts; else loading" data-test="accounts">
-    <bofa-account-tile *ngFor="let a of accounts; trackBy: trackById" [name]="a.name" [accountNumber]="a.number"
+    <dbs-account-tile *ngFor="let a of accounts; trackBy: trackById" [name]="a.name" [accountNumber]="a.number"
       [balance]="a.balance" [kind]="a.kind" (select)="open(a)" anTrack="account_tile_open" [anTrackProps]="{ kind: a.kind }">
-    </bofa-account-tile>
+    </dbs-account-tile>
   </div>
   <ng-template #loading><mat-spinner diameter="36"></mat-spinner></ng-template>
 
@@ -33,7 +33,7 @@
       <mat-card-title>Linked external accounts</mat-card-title>
       <div class="quote" *ngFor="let x of external$ | async">
         <span>{{ x.institution }} · {{ x.name }} ••{{ x.mask }}</span>
-        <span>{{ x.balance | bofaAmount }}</span>
+        <span>{{ x.balance | dbsAmount }}</span>
       </div>
     </mat-card>
   </div>

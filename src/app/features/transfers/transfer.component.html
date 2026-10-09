@@ -1,24 +1,24 @@
 <div class="page">
-  <bofa-page-header eyebrow="Transfers" title="Transfer between your accounts"
-    subtitle="Transfers made before 8 p.m. ET are available the same business day."></bofa-page-header>
+  <dbs-page-header eyebrow="Transfers" title="Transfer between your accounts"
+    subtitle="Transfers made before 8 p.m. ET are available the same business day."></dbs-page-header>
 
   <mat-card class="form-card">
     <ng-container *ngIf="!confirmation; else done">
-      <bofa-alert-banner level="error" *ngIf="error">{{ error }}</bofa-alert-banner>
+      <dbs-alert-banner level="error" *ngIf="error">{{ error }}</dbs-alert-banner>
       <form [formGroup]="form" (ngSubmit)="submit()">
         <mat-form-field appearance="outline" class="full-width">
           <mat-label>From</mat-label>
           <mat-select formControlName="fromAccountId" data-test="from">
-            <mat-option *ngFor="let a of accounts" [value]="a.id">{{ a.name }} {{ a.number | bofaMask }} — {{ a.available | bofaAmount }}</mat-option>
+            <mat-option *ngFor="let a of accounts" [value]="a.id">{{ a.name }} {{ a.number | dbsMask }} — {{ a.available | dbsAmount }}</mat-option>
           </mat-select>
         </mat-form-field>
         <mat-form-field appearance="outline" class="full-width">
           <mat-label>To</mat-label>
           <mat-select formControlName="toAccountId" data-test="to">
-            <mat-option *ngFor="let a of accounts" [value]="a.id">{{ a.name }} {{ a.number | bofaMask }}</mat-option>
+            <mat-option *ngFor="let a of accounts" [value]="a.id">{{ a.name }} {{ a.number | dbsMask }}</mat-option>
           </mat-select>
         </mat-form-field>
-        <bofa-alert-banner level="warning" *ngIf="form.hasError('sameAccount')">Choose two different accounts.</bofa-alert-banner>
+        <dbs-alert-banner level="warning" *ngIf="form.hasError('sameAccount')">Choose two different accounts.</dbs-alert-banner>
         <div class="row" fxLayout="row" fxLayout.xs="column" fxLayoutGap="16px">
           <mat-form-field appearance="outline">
             <mat-label>Amount</mat-label>
@@ -34,9 +34,9 @@
             <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>
         </div>
-        <bofa-alert-banner level="error" *ngIf="form.getError('insufficientFunds') as e">
-          Amount exceeds the available balance of {{ e.available | bofaAmount }}.
-        </bofa-alert-banner>
+        <dbs-alert-banner level="error" *ngIf="form.getError('insufficientFunds') as e">
+          Amount exceeds the available balance of {{ e.available | dbsAmount }}.
+        </dbs-alert-banner>
         <mat-form-field appearance="outline" class="full-width">
           <mat-label>Memo (optional)</mat-label>
           <input matInput formControlName="memo" />

@@ -1,5 +1,5 @@
 {
-  "name": "bofa-digital-banking",
+  "name": "dbs-digital-banking",
   "version": "14.2.0",
   "scripts": {
     "ng": "ng",

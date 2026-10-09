@@ -1,7 +1,7 @@
-import { BofaMaskPipe } from './mask.pipe';
+import { DbsMaskPipe } from './mask.pipe';
 
-describe('BofaMaskPipe', () => {
-  const pipe = new BofaMaskPipe();
+describe('DbsMaskPipe', () => {
+  const pipe = new DbsMaskPipe();
 
   it('keeps only the last four digits', () => {
     expect(pipe.transform('4400 1234 5678 9012')).toBe('••••9012');

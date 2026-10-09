@@ -1,10 +1,10 @@
 import { ApplicationRef, ComponentFactoryResolver, ComponentRef, Injectable, Injector } from '@angular/core';
-import { BofaToastComponent } from '../components/toast.component';
+import { DbsToastComponent } from '../components/toast.component';
 
 /** Imperatively renders a toast into document.body (pre-v13 dynamic component pattern). */
 @Injectable({ providedIn: 'root' })
-export class BofaToastService {
-  private ref?: ComponentRef<BofaToastComponent>;
+export class DbsToastService {
+  private ref?: ComponentRef<DbsToastComponent>;
 
   constructor(
     private resolver: ComponentFactoryResolver,
@@ -14,7 +14,7 @@ export class BofaToastService {
 
   show(message: string, durationMs = 4000): void {
     this.dismiss();
-    const factory = this.resolver.resolveComponentFactory(BofaToastComponent);
+    const factory = this.resolver.resolveComponentFactory(DbsToastComponent);
     const ref = factory.create(this.injector);
     ref.instance.message = message;
     ref.instance.closed.subscribe(() => this.dismiss());

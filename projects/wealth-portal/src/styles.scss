@@ -1,10 +1,10 @@
-@use '../../../dist/ui/theme/theme' as bofa;
+@use '../../../dist/ui/theme/theme' as dbs;
 
-@include bofa.bofa-design-system();
+@include dbs.dbs-design-system();
 
 html, body { height: 100%; }
 body { margin: 0; background: #f5f7fb; font-family: "Helvetica Neue", Arial, sans-serif; }
 
-// Wealth team overrides on Material's legacy table DOM (owned by @bofa-demo/wealth-frontend).
+// Wealth team overrides on Material's legacy table DOM (owned by @dbs-demo/wealth-frontend).
 .mat-table .mat-header-cell { color: #012169; font-weight: 600; text-transform: uppercase; font-size: 11px; letter-spacing: .04em; }
 .mat-row:hover { background: #f0f3f9; }

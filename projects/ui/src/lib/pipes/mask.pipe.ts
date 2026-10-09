@@ -1,8 +1,8 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 /** Masks an account/card number, keeping only the last `visible` digits (PII). */
-@Pipe({ name: 'bofaMask' })
-export class BofaMaskPipe implements PipeTransform {
+@Pipe({ name: 'dbsMask' })
+export class DbsMaskPipe implements PipeTransform {
   transform(value: string | null | undefined, visible = 4): string {
     if (!value) {
       return '';

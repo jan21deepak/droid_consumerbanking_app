@@ -2,8 +2,8 @@ import { CurrencyPipe } from '@angular/common';
 import { Pipe, PipeTransform } from '@angular/core';
 
 /** USD amount formatting used across all Digital Banking surfaces. Negative values render as -$1,234.56. */
-@Pipe({ name: 'bofaAmount' })
-export class BofaAmountPipe implements PipeTransform {
+@Pipe({ name: 'dbsAmount' })
+export class DbsAmountPipe implements PipeTransform {
   private currency = new CurrencyPipe('en-US');
 
   transform(value: number | null | undefined, showSign = false): string {

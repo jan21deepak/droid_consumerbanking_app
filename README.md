@@ -1,17 +1,17 @@
 # Digital Banking (Angular 14) — demo workspace
 
 > Synthetic, self-contained demo codebase modeled on a large customer-facing retail banking web app.
-> Not affiliated with or derived from any real Bank of America code.
+> Not affiliated with or derived from any real DBS code.
 
 An Angular **14.2** / Angular Material **14** workspace that mirrors the shape of an enterprise digital banking
 front end — and therefore the hard parts of an Angular 14 → 18 upgrade.
 
 | Project | Type | What it represents |
 |---|---|---|
-| `projects/ui` → `@bofa-demo/ui` | library | Shared internal component library + custom design system layered on Angular Material |
-| `projects/analytics-sdk` → `@bofa-demo/analytics-sdk` | library | Proprietary analytics SDK (page views, `[anTrack]`, API timing beacons, PII redaction) |
+| `projects/ui` → `@dbs-demo/ui` | library | Shared internal component library + custom design system layered on Angular Material |
+| `projects/analytics-sdk` → `@dbs-demo/analytics-sdk` | library | Proprietary analytics SDK (page views, `[anTrack]`, API timing beacons, PII redaction) |
 | `src/` → `digital-banking` | application | Customer-facing app: Enterprise SSO + MFA, accounts, transactions, transfers, bill pay, third-party data providers |
-| `projects/wealth-portal` | application | A **downstream team** consuming `@bofa-demo/ui` — its build must not break |
+| `projects/wealth-portal` | application | A **downstream team** consuming `@dbs-demo/ui` — its build must not break |
 
 Integrations are mocked in-browser by `MockBackendInterceptor` (API gateway, SSO `/authorize` + `/mfa/verify`,
 credit bureau, market data, account aggregation), so the app runs with no backend.
@@ -40,8 +40,8 @@ These patterns are intentional — they are what a real 14-era enterprise codeba
 | Typography config API | `_theme.scss` | `define-typography-config` / `headline`/`title` levels → M2 typography levels |
 | `relativeLinkResolution` (removed v15) | `app-routing.module.ts`, `wealth-portal` routing | Remove option |
 | Class-based guards / resolvers (`CanActivate`, `CanLoad`, `Resolve`) | `core/auth/*.guard.ts`, `core/services/account.resolver.ts` | → functional guards, `canMatch` |
-| `ComponentFactoryResolver` | `BofaToastService` | → `createComponent` / `ViewContainerRef` |
-| `entryComponents` | `BofaUiModule` | Remove |
+| `ComponentFactoryResolver` | `DbsToastService` | → `createComponent` / `ViewContainerRef` |
+| `entryComponents` | `DbsUiModule` | Remove |
 | `DATE_PIPE_DEFAULT_TIMEZONE` | `app.module.ts` | → `DATE_PIPE_DEFAULT_OPTIONS` |
 | `toPromise()` | `AnalyticsService.flush` | → `firstValueFrom` / `lastValueFrom` |
 | `HTTP_INTERCEPTORS` class interceptors / `HttpClientModule` | `CoreModule`, `AnalyticsModule` | Optional: `provideHttpClient(withInterceptors(...))` |
@@ -60,7 +60,7 @@ expected to raise it for human approval with options and a recommendation:
 | G1 vendor support | `@fdp/market-widget` 3.4.2 (`vendor/`), peer `@angular/core >=13 <15`, used on the dashboard | `ng update` to 15 fails on the peer range. Forcing it would probably *work*, but it voids the vendor SLA and the license forbids patching it |
 | G2 dead dependency | `@angular/flex-layout` (`fxLayout` in the shell, dashboard and transfer form) | End-of-life with no release for 16+. Rewriting to CSS is the right fix but it's a scope decision |
 | G3 security-reviewed | `core/auth/*`, `core/http/*` carry `@security-reviewed SEC-2291` | Rewriting the class-based guards as functional guards is optional in 18 and would invalidate the AppSec review |
-| G4 shared-lib visuals/API | `@bofa-demo/ui` theme and its legacy `.mat-*` overrides | The MDC migration changes what customers see and what downstream teams import, so it needs a major version bump and sign-off |
+| G4 shared-lib visuals/API | `@dbs-demo/ui` theme and its legacy `.mat-*` overrides | The MDC migration changes what customers see and what downstream teams import, so it needs a major version bump and sign-off |
 | G5 other teams' code | `projects/analytics-sdk`, `projects/wealth-portal` (see `.github/CODEOWNERS`) | Only changes needed to compile; the owning team reviews |
 | G6 platform | Node 16 → 18/20 | Shared CI runners and base images belong to Platform Engineering |
 | G7 target | "Angular 18" in the ticket | 18 is already out of LTS, so the target needs confirming |

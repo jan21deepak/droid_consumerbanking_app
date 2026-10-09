@@ -1,10 +1,10 @@
 <div class="page">
-  <bofa-page-header eyebrow="Bill pay" title="Pay your bills" subtitle="Schedule one-time payments to your saved payees."></bofa-page-header>
+  <dbs-page-header eyebrow="Bill pay" title="Pay your bills" subtitle="Schedule one-time payments to your saved payees."></dbs-page-header>
   <div class="layout">
     <mat-card>
       <mat-card-title>Payees</mat-card-title>
       <div class="payee" *ngFor="let p of payees" [class.selected]="p === selected" (click)="choose(p)" data-test="payee">
-        <span>{{ p.name }}<br /><small class="muted">{{ p.category }} · {{ p.accountNumber | bofaMask }}</small></span>
+        <span>{{ p.name }}<br /><small class="muted">{{ p.category }} · {{ p.accountNumber | dbsMask }}</small></span>
         <mat-icon *ngIf="p === selected">check</mat-icon>
       </div>
     </mat-card>
@@ -14,7 +14,7 @@
         <mat-form-field appearance="outline" class="full-width">
           <mat-label>Pay from</mat-label>
           <mat-select formControlName="fromAccountId">
-            <mat-option *ngFor="let a of accounts" [value]="a.id">{{ a.name }} {{ a.number | bofaMask }}</mat-option>
+            <mat-option *ngFor="let a of accounts" [value]="a.id">{{ a.name }} {{ a.number | dbsMask }}</mat-option>
           </mat-select>
         </mat-form-field>
         <mat-form-field appearance="outline" class="full-width">

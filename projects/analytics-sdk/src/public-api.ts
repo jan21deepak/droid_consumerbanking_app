@@ -1,5 +1,5 @@
 /*
- * Public API Surface of @bofa-demo/analytics-sdk
+ * Public API Surface of @dbs-demo/analytics-sdk
  */
 export * from './lib/analytics.config';
 export * from './lib/analytics.service';

@@ -1,7 +1,7 @@
-import { BofaAmountPipe } from './amount.pipe';
+import { DbsAmountPipe } from './amount.pipe';
 
-describe('BofaAmountPipe', () => {
-  const pipe = new BofaAmountPipe();
+describe('DbsAmountPipe', () => {
+  const pipe = new DbsAmountPipe();
 
   it('formats positive amounts as USD', () => {
     expect(pipe.transform(1234.5)).toBe('$1,234.50');

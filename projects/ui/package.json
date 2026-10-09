@@ -1,5 +1,5 @@
 {
-  "name": "@bofa-demo/ui",
+  "name": "@dbs-demo/ui",
   "version": "4.2.0",
   "description": "Shared Digital Banking design system (built on Angular Material). Consumed by multiple downstream teams.",
   "peerDependencies": {

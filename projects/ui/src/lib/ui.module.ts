@@ -3,26 +3,26 @@ import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
-import { BofaAccountTileComponent } from './components/account-tile.component';
-import { BofaAlertBannerComponent } from './components/alert-banner.component';
-import { BofaPageHeaderComponent } from './components/page-header.component';
-import { BofaToastComponent } from './components/toast.component';
-import { BofaAmountPipe } from './pipes/amount.pipe';
-import { BofaMaskPipe } from './pipes/mask.pipe';
+import { DbsAccountTileComponent } from './components/account-tile.component';
+import { DbsAlertBannerComponent } from './components/alert-banner.component';
+import { DbsPageHeaderComponent } from './components/page-header.component';
+import { DbsToastComponent } from './components/toast.component';
+import { DbsAmountPipe } from './pipes/amount.pipe';
+import { DbsMaskPipe } from './pipes/mask.pipe';
 
 const DECLARATIONS = [
-  BofaPageHeaderComponent,
-  BofaAccountTileComponent,
-  BofaAlertBannerComponent,
-  BofaToastComponent,
-  BofaMaskPipe,
-  BofaAmountPipe,
+  DbsPageHeaderComponent,
+  DbsAccountTileComponent,
+  DbsAlertBannerComponent,
+  DbsToastComponent,
+  DbsMaskPipe,
+  DbsAmountPipe,
 ];
 
 @NgModule({
   declarations: DECLARATIONS,
   imports: [CommonModule, MatButtonModule, MatCardModule, MatIconModule],
   exports: DECLARATIONS,
-  entryComponents: [BofaToastComponent],
+  entryComponents: [DbsToastComponent],
 })
-export class BofaUiModule {}
+export class DbsUiModule {}

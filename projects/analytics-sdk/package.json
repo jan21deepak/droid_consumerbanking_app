@@ -1,5 +1,5 @@
 {
-  "name": "@bofa-demo/analytics-sdk",
+  "name": "@dbs-demo/analytics-sdk",
   "version": "2.7.1",
   "description": "Proprietary Digital Banking analytics SDK (page views, interaction tracking, API latency beacons).",
   "peerDependencies": {

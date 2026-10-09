@@ -15,8 +15,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { AnalyticsModule } from '@bofa-demo/analytics-sdk';
-import { BofaUiModule } from '@bofa-demo/ui';
+import { AnalyticsModule } from '@dbs-demo/analytics-sdk';
+import { DbsUiModule } from '@dbs-demo/ui';
 
 const MODULES = [
   CommonModule,
@@ -35,7 +35,7 @@ const MODULES = [
   MatTableModule,
   MatTabsModule,
   MatTooltipModule,
-  BofaUiModule,
+  DbsUiModule,
   AnalyticsModule,
 ];
 

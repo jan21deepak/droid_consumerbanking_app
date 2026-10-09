@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
     <mat-toolbar color="primary">
       <span>Wealth Portal</span>
       <span class="spacer"></span>
-      <small>Downstream consumer of &#64;bofa-demo/ui</small>
+      <small>Downstream consumer of &#64;dbs-demo/ui</small>
     </mat-toolbar>
     <main class="wp-main"><router-outlet></router-outlet></main>
   `,

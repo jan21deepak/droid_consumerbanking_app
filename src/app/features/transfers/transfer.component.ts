@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { AnalyticsService } from '@bofa-demo/analytics-sdk';
+import { AnalyticsService } from '@dbs-demo/analytics-sdk';
 import { Account, Confirmation } from '../../core/models';
 import { AccountsService } from '../../core/services/accounts.service';
 import { PaymentsService } from '../../core/services/payments.service';

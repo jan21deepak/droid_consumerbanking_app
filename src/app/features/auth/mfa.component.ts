@@ -8,9 +8,9 @@ import { AuthService } from '../../core/auth/auth.service';
   template: `
     <div class="page auth">
       <mat-card class="form-card">
-        <bofa-page-header eyebrow="Step-up verification" title="Enter your one-time code"
-          [subtitle]="'We sent a 6-digit code to ' + (auth.pendingChallenge?.maskedDestination || 'your device')"></bofa-page-header>
-        <bofa-alert-banner level="error" *ngIf="error">{{ error }}</bofa-alert-banner>
+        <dbs-page-header eyebrow="Step-up verification" title="Enter your one-time code"
+          [subtitle]="'We sent a 6-digit code to ' + (auth.pendingChallenge?.maskedDestination || 'your device')"></dbs-page-header>
+        <dbs-alert-banner level="error" *ngIf="error">{{ error }}</dbs-alert-banner>
         <mat-form-field appearance="outline" class="full-width">
           <mat-label>One-time code</mat-label>
           <input matInput [formControl]="code" inputmode="numeric" maxlength="6" autocomplete="one-time-code" data-test="otp" />

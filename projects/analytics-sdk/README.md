@@ -1,4 +1,4 @@
-# @bofa-demo/analytics-sdk
+# @dbs-demo/analytics-sdk
 
 Proprietary analytics SDK: router page views, `[anTrack]` click tracking, API latency beacons and client-side PII redaction.
 

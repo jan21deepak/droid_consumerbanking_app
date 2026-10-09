@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { BofaToastService } from '@bofa-demo/ui';
+import { DbsToastService } from '@dbs-demo/ui';
 import { Account, Payee } from '../../core/models';
 import { AccountsService } from '../../core/services/accounts.service';
 import { PaymentsService } from '../../core/services/payments.service';
@@ -26,7 +26,7 @@ export class BillPayComponent implements OnInit {
     private fb: FormBuilder,
     private payments: PaymentsService,
     private accountsService: AccountsService,
-    private toast: BofaToastService
+    private toast: DbsToastService
   ) {}
 
   ngOnInit(): void {

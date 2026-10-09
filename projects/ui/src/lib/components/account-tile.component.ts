@@ -1,26 +1,26 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 
-export type BofaAccountKind = 'checking' | 'savings' | 'credit' | 'investment';
+export type DbsAccountKind = 'checking' | 'savings' | 'credit' | 'investment';
 
 @Component({
-  selector: 'bofa-account-tile',
+  selector: 'dbs-account-tile',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <mat-card class="bofa-account-tile" [class.credit]="kind === 'credit'" (click)="select.emit()">
+    <mat-card class="dbs-account-tile" [class.credit]="kind === 'credit'" (click)="select.emit()">
       <div class="row">
         <mat-icon class="kind-icon">{{ icon }}</mat-icon>
         <div class="meta">
           <div class="name">{{ name }}</div>
-          <div class="number">{{ accountNumber | bofaMask }}</div>
+          <div class="number">{{ accountNumber | dbsMask }}</div>
         </div>
       </div>
-      <div class="balance">{{ balance | bofaAmount }}</div>
+      <div class="balance">{{ balance | dbsAmount }}</div>
       <div class="label">{{ kind === 'credit' ? 'Current balance' : 'Available balance' }}</div>
     </mat-card>
   `,
   styles: [`
-    .bofa-account-tile { cursor: pointer; transition: box-shadow .15s ease; }
-    .bofa-account-tile:hover { box-shadow: 0 6px 18px rgba(1, 33, 105, .18); }
+    .dbs-account-tile { cursor: pointer; transition: box-shadow .15s ease; }
+    .dbs-account-tile:hover { box-shadow: 0 6px 18px rgba(1, 33, 105, .18); }
     .row { display: flex; gap: 12px; align-items: center; }
     .kind-icon { color: #012169; }
     .name { font-weight: 600; }
@@ -30,11 +30,11 @@ export type BofaAccountKind = 'checking' | 'savings' | 'credit' | 'investment';
     .label { color: #5a6275; font-size: 12px; }
   `]
 })
-export class BofaAccountTileComponent {
+export class DbsAccountTileComponent {
   @Input() name = '';
   @Input() accountNumber = '';
   @Input() balance = 0;
-  @Input() kind: BofaAccountKind = 'checking';
+  @Input() kind: DbsAccountKind = 'checking';
   @Output() select = new EventEmitter<void>();
 
   get icon(): string {

@@ -1,5 +1,5 @@
 /*
- * Public API Surface of @bofa-demo/ui
+ * Public API Surface of @dbs-demo/ui
  */
 export * from './lib/ui.module';
 export * from './lib/components/page-header.component';
