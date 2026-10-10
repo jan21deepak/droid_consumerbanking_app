@@ -32,8 +32,10 @@ const routes: Routes = [
   { path: '**', redirectTo: 'dashboard' },
 ];
 
+// Hash URLs: some embedded browsers (e.g. the Factory desktop pane) do a full reload on every
+// history.pushState, which drops the in-memory SSO challenge between /login and /mfa.
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy', scrollPositionRestoration: 'enabled' })],
+  imports: [RouterModule.forRoot(routes, { useHash: true, relativeLinkResolution: 'legacy', scrollPositionRestoration: 'enabled' })],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

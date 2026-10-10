@@ -9,9 +9,9 @@ export const MOCK_USER = {
 };
 
 export const MOCK_ACCOUNTS: Account[] = [
-  { id: 'chk-01', name: 'Advantage Plus Checking', number: '4831002217', routingNumber: '026009593', kind: 'checking', balance: 8421.37, available: 8121.37 },
-  { id: 'sav-01', name: 'Advantage Savings', number: '4831009922', routingNumber: '026009593', kind: 'savings', balance: 25210.0, available: 25210.0 },
-  { id: 'cc-01', name: 'Customized Cash Rewards Visa', number: '4400123456789012', routingNumber: '', kind: 'credit', balance: -1284.55, available: 8715.45 },
+  { id: 'chk-01', name: 'Everyday Checking', number: '4831002217', routingNumber: '099100128', kind: 'checking', balance: 8421.37, available: 8121.37 },
+  { id: 'sav-01', name: 'Smart Saver Savings', number: '4831009922', routingNumber: '099100128', kind: 'savings', balance: 25210.0, available: 25210.0 },
+  { id: 'cc-01', name: 'Cashback Rewards Visa', number: '4400123456789012', routingNumber: '', kind: 'credit', balance: -1284.55, available: 8715.45 },
   { id: 'inv-01', name: 'Self-Directed Brokerage', number: '7Q2-100448', routingNumber: '', kind: 'investment', balance: 61873.12, available: 3100.0 },
 ];
 

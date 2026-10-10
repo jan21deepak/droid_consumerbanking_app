@@ -2,12 +2,37 @@
 
 @include dbs.dbs-design-system();
 
+// Self-hosted so icons render where fonts.googleapis.com / fonts.gstatic.com are blocked.
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url('/assets/fonts/material-icons.woff2') format('woff2');
+}
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
+
 html, body { height: 100%; }
-body { margin: 0; background: #f5f7fb; font-family: "Helvetica Neue", Arial, sans-serif; color: #1d2433; }
+body { margin: 0; background: #F7F7F7; font-family: "Helvetica Neue", Arial, sans-serif; color: #1D1D1D; }
 .page { max-width: 1120px; margin: 0 auto; padding: 24px; }
 .grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
 .form-card { max-width: 560px; }
 .full-width { width: 100%; }
-.muted { color: #5a6275; }
+.muted { color: #5A5A5A; }
 .positive { color: #1e6b3a; }
-.negative { color: #b10617; }
+.negative { color: #7A0A0F; }

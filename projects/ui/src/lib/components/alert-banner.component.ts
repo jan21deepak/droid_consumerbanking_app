@@ -16,10 +16,10 @@ export type DbsAlertLevel = 'info' | 'success' | 'warning' | 'error';
   styles: [`
     .dbs-alert { display: flex; align-items: center; gap: 12px; padding: 10px 16px; border-radius: 8px; margin-bottom: 16px; }
     .msg { flex: 1; }
-    .dbs-alert--info { background: #e6eaf1; color: #012169; }
+    .dbs-alert--info { background: #F2F2F2; color: #1A1A1A; }
     .dbs-alert--success { background: #e5f4ea; color: #1e6b3a; }
     .dbs-alert--warning { background: #fff4e0; color: #8a5300; }
-    .dbs-alert--error { background: #fbe5e8; color: #b10617; }
+    .dbs-alert--error { background: #fde8e9; color: #7A0A0F; }
   `]
 })
 export class DbsAlertBannerComponent {

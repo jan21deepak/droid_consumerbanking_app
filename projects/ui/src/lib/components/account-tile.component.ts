@@ -20,14 +20,14 @@ export type DbsAccountKind = 'checking' | 'savings' | 'credit' | 'investment';
   `,
   styles: [`
     .dbs-account-tile { cursor: pointer; transition: box-shadow .15s ease; }
-    .dbs-account-tile:hover { box-shadow: 0 6px 18px rgba(1, 33, 105, .18); }
+    .dbs-account-tile:hover { box-shadow: 0 6px 18px rgba(26, 26, 26, .18); }
     .row { display: flex; gap: 12px; align-items: center; }
-    .kind-icon { color: #012169; }
+    .kind-icon { color: #1A1A1A; }
     .name { font-weight: 600; }
-    .number { color: #5a6275; font-size: 13px; }
-    .balance { font-size: 26px; font-weight: 600; margin-top: 16px; color: #012169; }
-    .credit .balance { color: #e31837; }
-    .label { color: #5a6275; font-size: 12px; }
+    .number { color: #5A5A5A; font-size: 13px; }
+    .balance { font-size: 26px; font-weight: 600; margin-top: 16px; color: #1A1A1A; }
+    .credit .balance { color: #EC1C24; }
+    .label { color: #5A5A5A; font-size: 12px; }
   `]
 })
 export class DbsAccountTileComponent {
