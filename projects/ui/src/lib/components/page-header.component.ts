@@ -14,9 +14,9 @@ import { Component, Input } from '@angular/core';
   `,
   styles: [`
     .dbs-page-header { display: flex; justify-content: space-between; align-items: flex-end; margin: 8px 0 24px; }
-    h1 { margin: 0; font-size: 26px; color: #012169; }
-    .eyebrow { margin: 0 0 4px; text-transform: uppercase; font-size: 12px; letter-spacing: .08em; color: #e31837; }
-    .subtitle { margin: 4px 0 0; color: #5a6275; }
+    h1 { margin: 0; font-size: 26px; color: #1A1A1A; }
+    .eyebrow { margin: 0 0 4px; text-transform: uppercase; font-size: 12px; letter-spacing: .08em; color: #EC1C24; }
+    .subtitle { margin: 4px 0 0; color: #5A5A5A; }
   `]
 })
 export class DbsPageHeaderComponent {

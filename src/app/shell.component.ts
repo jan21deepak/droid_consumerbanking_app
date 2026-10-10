@@ -34,8 +34,8 @@ import { AuthService } from './core/auth/auth.service';
     .brand { font-weight: 600; letter-spacing: .02em; }
     .spacer { flex: 1; }
     .container { min-height: calc(100vh - 64px); background: transparent; }
-    .nav { width: 240px; border-right: 1px solid #e3e7ef; }
-    .active { background: #e6eaf1; color: #012169; font-weight: 600; }
+    .nav { width: 240px; border-right: 1px solid #E6E6E6; }
+    .active { background: #F2F2F2; color: #1A1A1A; font-weight: 600; }
   `],
 })
 export class ShellComponent {

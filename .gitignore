@@ -43,3 +43,5 @@ Thumbs.db
 
 # Local
 .angular/
+# Droid wiki video workspace (HyperFrames project, local ffmpeg, fonts)
+/.factory

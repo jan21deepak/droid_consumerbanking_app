@@ -10,7 +10,7 @@ import { AccountsService } from '../../core/services/accounts.service';
   selector: 'app-account-detail',
   templateUrl: './account-detail.component.html',
   styles: [
-    '.summary { display: flex; gap: 48px; margin-bottom: 24px; } .summary .value { font-size: 24px; font-weight: 600; color: #012169; }',
+    '.summary { display: flex; gap: 48px; margin-bottom: 24px; } .summary .value { font-size: 24px; font-weight: 600; color: #1A1A1A; }',
     'table { width: 100%; } .filter { width: 320px; } .pending { font-size: 11px; color: #8a5300; margin-left: 6px; }',
   ],
 })

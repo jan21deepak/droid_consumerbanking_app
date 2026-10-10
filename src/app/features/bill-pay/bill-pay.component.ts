@@ -8,7 +8,7 @@ import { PaymentsService } from '../../core/services/payments.service';
 @Component({
   selector: 'app-bill-pay',
   templateUrl: './bill-pay.component.html',
-  styles: ['.layout { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; } .payee { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #eef1f6; cursor: pointer; } .payee.selected { color: #012169; font-weight: 600; }'],
+  styles: ['.layout { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; } .payee { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #EDEDED; cursor: pointer; } .payee.selected { color: #1A1A1A; font-weight: 600; }'],
 })
 export class BillPayComponent implements OnInit {
   payees: Payee[] = [];

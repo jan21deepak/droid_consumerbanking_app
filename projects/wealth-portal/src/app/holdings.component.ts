@@ -10,7 +10,7 @@ interface Holding {
 @Component({
   selector: 'wp-holdings',
   template: `
-    <dbs-page-header eyebrow="Merrill Edge (demo)" title="Portfolio holdings" subtitle="Self-directed brokerage"></dbs-page-header>
+    <dbs-page-header eyebrow="DBS Wealth (demo)" title="Portfolio holdings" subtitle="Self-directed brokerage"></dbs-page-header>
     <dbs-alert-banner level="info">Market data delayed 15 minutes.</dbs-alert-banner>
     <div class="tiles">
       <dbs-account-tile name="Brokerage" accountNumber="7Q2100448" kind="investment" [balance]="total"></dbs-account-tile>
@@ -39,7 +39,7 @@ export class HoldingsComponent {
   readonly holdings: Holding[] = [
     { symbol: 'VTI', name: 'Vanguard Total Stock Market ETF', shares: 120, price: 301.12 },
     { symbol: 'AGG', name: 'iShares Core US Aggregate Bond ETF', shares: 200, price: 99.4 },
-    { symbol: 'BAC', name: 'DBS Corp', shares: 350, price: 49.87 },
+    { symbol: 'D05', name: 'DBS Group Holdings', shares: 350, price: 34.2 },
   ];
 
   get total(): number {
